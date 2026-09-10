@@ -10,7 +10,7 @@ const resources = {
       },
       hero: {
         kicker: "FINANCIAL INTELLIGENCE",
-        title: "您的金融智能工作台",
+        title: "您的金融智能工作平台",
         description:
           "從晨會洞察、專業研報到策略對談，選擇工具立即開始今日的市場決策。",
       },
@@ -36,7 +36,7 @@ const resources = {
       },
       footer: {
         notice: "合作夥伴專屬服務入口",
-        support: "由 GEAI 提供技術服務",
+        support: "由廷豐金融科技提供技術服務",
       },
     },
   },

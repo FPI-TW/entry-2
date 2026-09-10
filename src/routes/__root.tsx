@@ -18,7 +18,10 @@ export const Route = createRootRoute({
         content: "合作夥伴專屬金融智能服務入口。",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
+    ],
   }),
   shellComponent: RootDocument,
 })

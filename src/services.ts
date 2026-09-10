@@ -5,7 +5,6 @@ export const services = [
     image: "/product-morning-brief.png",
     width: 1448,
     height: 1086,
-    featured: true,
   },
   {
     id: "financialReport",
@@ -13,7 +12,6 @@ export const services = [
     image: "/product-research-report.png",
     width: 1435,
     height: 1096,
-    featured: false,
   },
   {
     id: "strategist",
@@ -21,6 +19,5 @@ export const services = [
     image: "/product-strategist.png",
     width: 1448,
     height: 1086,
-    featured: false,
   },
 ] as const

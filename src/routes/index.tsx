@@ -23,11 +23,7 @@ function PortalHome() {
         <section className="service-grid" aria-label={t("services.label")}>
           {services.map((service, index) => (
             <a
-              className={`service-card ${
-                service.featured
-                  ? "service-card-featured"
-                  : "service-card-compact"
-              }`}
+              className="service-card"
               href={service.href}
               target="_blank"
               rel="noopener noreferrer"

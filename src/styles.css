@@ -187,14 +187,15 @@ a {
 
 .service-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(340px, 0.7fr);
-  grid-template-rows: repeat(2, minmax(190px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 1rem;
 }
 
 .service-card {
   position: relative;
   display: grid;
+  grid-template-rows: 230px minmax(0, 1fr);
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -226,15 +227,6 @@ a {
   outline-offset: 3px;
 }
 
-.service-card-featured {
-  grid-row: 1 / span 2;
-  grid-template-rows: minmax(260px, 1fr) auto;
-}
-
-.service-card-compact {
-  grid-template-columns: minmax(150px, 42%) 1fr;
-}
-
 .service-visual {
   position: relative;
   overflow: hidden;
@@ -264,11 +256,6 @@ a {
   padding: clamp(1.4rem, 3vw, 2.15rem);
 }
 
-.service-card-compact .service-body {
-  gap: 1rem;
-  padding: 1.5rem;
-}
-
 .service-index {
   margin: 0 0 0.75rem;
   color: var(--gold);
@@ -286,20 +273,12 @@ a {
   line-height: 1.2;
 }
 
-.service-card-compact .service-title {
-  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
 .service-description {
   max-width: 34rem;
   margin: 0.75rem 0 0;
   color: var(--ink-soft);
   font-size: 0.95rem;
   line-height: 1.65;
-}
-
-.service-card-compact .service-description {
-  display: none;
 }
 
 .service-cta {
@@ -353,21 +332,12 @@ a {
 
   .service-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: none;
+    grid-auto-rows: 1fr;
   }
 
-  .service-card-featured {
-    grid-row: auto;
-  }
-
-  .service-card,
-  .service-card-featured {
+  .service-card {
     grid-template-columns: minmax(170px, 38%) 1fr;
     grid-template-rows: minmax(190px, auto);
-  }
-
-  .service-description {
-    display: none;
   }
 }
 
@@ -413,19 +383,13 @@ a {
     font-size: clamp(2.2rem, 12vw, 3.25rem);
   }
 
-  .service-card,
-  .service-card-featured,
-  .service-card-compact {
+  .service-card {
     grid-template-columns: 1fr;
     grid-template-rows: 190px auto;
   }
 
-  .service-card-compact .service-body {
+  .service-body {
     padding: 1.35rem;
-  }
-
-  .service-card-compact .service-description {
-    display: block;
   }
 
   .site-footer {
