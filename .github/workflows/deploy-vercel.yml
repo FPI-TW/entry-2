@@ -53,13 +53,13 @@ jobs:
         run: pnpm run test
 
       - name: Pull Vercel project settings and environment
-        run: pnpm dlx vercel@59.11.7 pull --yes --environment=production --token="$VERCEL_TOKEN"
+        run: npx --yes vercel@59.11.7 pull --yes --environment=production --token="$VERCEL_TOKEN"
 
       - name: Build with Vercel
-        run: pnpm dlx vercel@59.11.7 build --prod --token="$VERCEL_TOKEN"
+        run: npx --yes vercel@59.11.7 build --prod --token="$VERCEL_TOKEN"
 
       - name: Remove Git metadata before deploy
         run: rm -rf -- .git
 
       - name: Deploy prebuilt output to Vercel
-        run: pnpm dlx vercel@59.11.7 deploy --prebuilt --archive=tgz --prod --token="$VERCEL_TOKEN"
+        run: npx --yes vercel@59.11.7 deploy --prebuilt --archive=tgz --prod --token="$VERCEL_TOKEN"
