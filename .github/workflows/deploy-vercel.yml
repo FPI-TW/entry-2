@@ -1,0 +1,65 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-production-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup pnpm
+        run: corepack prepare pnpm@12.3.4 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm run format:check
+
+      - name: Check lint
+        run: pnpm run lint:check
+
+      - name: Check types
+        run: pnpm run type:check
+
+      - name: Run tests
+        run: pnpm run test
+
+      - name: Pull Vercel project settings and environment
+        run: pnpm dlx vercel@59.11.7 pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+      - name: Build with Vercel
+        run: pnpm dlx vercel@59.11.7 build --prod --token="$VERCEL_TOKEN"
+
+      - name: Remove Git metadata before deploy
+        run: rm -rf -- .git
+
+      - name: Deploy prebuilt output to Vercel
+        run: pnpm dlx vercel@59.11.7 deploy --prebuilt --archive=tgz --prod --token="$VERCEL_TOKEN"
