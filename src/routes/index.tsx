@@ -40,7 +40,7 @@ function PortalHome() {
           className="grid auto-rows-fr gap-4 lg:grid-cols-3"
           aria-label={t("services.label")}
         >
-          {services.map((service, index) => (
+          {services.map(service => (
             <a
               className="group isolate grid min-w-0 grid-cols-1 grid-rows-[190px_minmax(0,1fr)] overflow-hidden rounded-2xl border border-line bg-paper-strong text-ink no-underline shadow-card-inset transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-[3px] hover:border-gold/70 hover:shadow-portal focus-visible:-translate-y-[3px] focus-visible:border-gold/70 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-gold/35 active:-translate-y-px active:scale-[0.99] motion-reduce:transition-none md:grid-cols-[minmax(170px,38%)_1fr] md:grid-rows-[minmax(190px,auto)] lg:grid-cols-1 lg:grid-rows-[230px_minmax(0,1fr)]"
               href={service.href}
@@ -65,9 +65,6 @@ function PortalHome() {
               </div>
               <div className="flex min-w-0 flex-col justify-between gap-7 p-5 sm:p-6 lg:p-8">
                 <div>
-                  <p className="m-0 mb-3 text-xs font-extrabold tracking-[0.12em] text-gold">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
                   <h2 className="m-0 text-2xl leading-tight font-bold tracking-[-0.035em] text-ink">
                     {t(`services.${service.id}.title`)}
                   </h2>
