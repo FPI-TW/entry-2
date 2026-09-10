@@ -17,6 +17,22 @@ To build this application for production:
 pnpm build
 ```
 
+## Vercel 部署
+
+正式環境由 [`.github/workflows/deploy-vercel.yml`](.github/workflows/deploy-vercel.yml) 部署至 Vercel。
+
+Workflow 會在變更推送至 `main`，或手動執行 `workflow_dispatch` 時啟動。Repository 必須設定以下 GitHub Actions 資料：
+
+| 類型            | 名稱                | 用途                  |
+| --------------- | ------------------- | --------------------- |
+| GitHub Secret   | `VERCEL_TOKEN`      | Vercel CLI 驗證 Token |
+| GitHub Variable | `VERCEL_ORG_ID`     | Vercel Team ID        |
+| GitHub Variable | `VERCEL_PROJECT_ID` | Vercel Project ID     |
+
+部署流程使用 Node.js 24 與 pnpm 12.3.4，依序執行格式、Lint、型別及測試檢查，再拉取 Vercel production 設定並建立 prebuilt output。上傳前會移除 CI 工作目錄中的 `.git`，避免 Git 紀錄進入部署封裝，最後以壓縮檔部署至 Vercel production。
+
+目前正式環境：[https://entry-2.vercel.app](https://entry-2.vercel.app)。
+
 ## Styling
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
