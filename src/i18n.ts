@@ -10,8 +10,7 @@ const resources = {
       },
       header: {
         brandLabel: "理財週刊與華信證券合作入口",
-        wealthMagazineLogoAlt: "理財週刊",
-        hwashinLogoAlt: "華信投顧",
+        partnerLogoAlt: "廷豐金融科技",
         portalLabel: "AI 金融智能入口",
       },
       hero: {
