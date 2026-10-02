@@ -5,11 +5,11 @@ const resources = {
   "zh-TW": {
     translation: {
       meta: {
-        title: "金融智能入口｜理財週刊 × 華信證券",
+        title: "金融智能入口",
         description: "合作夥伴專屬金融智能服務入口。",
       },
       header: {
-        brandLabel: "理財週刊與華信證券合作入口",
+        brandLabel: "廷豐金融科技合作入口",
         partnerLogoAlt: "廷豐金融科技",
         portalLabel: "AI 金融智能入口",
       },
