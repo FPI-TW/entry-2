@@ -37,6 +37,10 @@ Workflow 會在變更推送至 `main`，或手動執行 `workflow_dispatch` 時�
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
+## 品牌識別
+
+頁首使用 `public/partner-logo.webp` 顯示理財週刊與華信投顧的合作標誌。
+
 ### Removing Tailwind CSS
 
 If you prefer not to use Tailwind CSS:
